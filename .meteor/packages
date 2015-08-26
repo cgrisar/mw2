@@ -9,3 +9,4 @@ insecure
 aldeed:collection2
 coffeescript
 aldeed:autoform
+iron:router
