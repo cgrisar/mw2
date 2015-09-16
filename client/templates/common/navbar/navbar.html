@@ -3,7 +3,9 @@
         <a href="#" class="uk-navbar-brand">MOVINGWINE</a>
         <ul class="uk-navbar-nav">
             <li><a href="#">Goods In</a></li>
-            <li class="uk-parent"><a href="#">Goods Out</a></li>
+            <li class="uk-parent"><a href="/goodsout">Goods Out</a></li>
+            <li class="uk-parent"><a href="{{pathFor 'relationships'}}">Relationships</a></li>
+            <li class="uk-parent">{{> loginButtons align="right"}}</li>
         </ul>
     </nav>
 </template>

@@ -1,9 +1,11 @@
 <template name="relationships">
     <h4>Relationships</h4>
-    <div class=""></div>
+
     <ul class="uk-list">
         {{#each relationships}}
-            <li>{{name}} - {{addresses.address}}</li>
+            <li>
+                {{name}} - {{address}} - <a href="{{pathFor 'relationship'}}" class="btn btn-default">Open</a>
+            </li>
         {{/each}}
     </ul>
 </template>

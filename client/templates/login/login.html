@@ -2,9 +2,9 @@
     <div>
         <div class="uk-cover-background">
             <ul class="uk-slideshow" data-uk-slideshow="{autoplay:true}">
-                <li><img src="/images/slide1.jpg" alt=""></li>
-                <li><img src="/images/slide2.jpg" alt=""></li>
-                <li><img src="/images/slide3.jpg" alt=""></li>
+                <li><img src="public/images/slide1.jpg" alt=""></li>
+                <li><img src="public/images/slide2.jpg" alt=""></li>
+                <li><img src="public/images/slide3.jpg" alt=""></li>
             </ul>
 
             <div class="uk-position-cover uk-flex uk-flex-right uk-flex-middle uk-flex-space-around">
@@ -20,6 +20,9 @@
                         </div>
                         <div class="uk-form-row">
                             <a class="uk-width-1-1 uk-button uk-button-primary uk-button-large" href="#">Login</a>
+                        </div>
+                        <div class="uk-form-row">
+                            {{> loginButtons}}
                         </div>
                         <div class="uk-form-row uk-text-small">
                             <label class="uk-float-left"><input type="checkbox"> Remember Me</label>

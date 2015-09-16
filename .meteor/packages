@@ -5,8 +5,10 @@
 # but you can also edit it by hand.
 
 meteor-platform
-insecure
 aldeed:collection2
 coffeescript
 aldeed:autoform
 iron:router
+sacha:spin
+accounts-ui
+accounts-password
