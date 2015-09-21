@@ -10,5 +10,4 @@ coffeescript
 aldeed:autoform
 iron:router
 sacha:spin
-accounts-ui
 accounts-password
