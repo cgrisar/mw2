@@ -2,6 +2,6 @@
  * Created by charlesgrisar on 07/09/15.
  */
 
-Meteor.publish('Relationships', function() {
+Meteor.publish('relationships', function() {
     return Relationships.find();
 });

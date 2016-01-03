@@ -1,11 +1,49 @@
 <template name="relationships">
     <h4>Relationships</h4>
 
-    <ul class="uk-list">
+    <div class="ui relaxed list">
         {{#each relationships}}
-            <li>
-                {{name}} - {{address}} - <a href="{{pathFor 'relationship'}}" class="btn btn-default">Open</a>
-            </li>
+        <div class="item">
+            <div class="content">
+                <a class="header">{{name}}</a>
+                <br>
+                <table class="ui single line table">
+                    <thead>
+                        <tr>
+                            <th>type</th>
+                            <th>address</th>
+                            <th>contact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each addresses}}
+                            <tr class="top aligned">
+                                <td>{{type}}</td>
+                                <td>
+                                    <div class="description">
+                                        {{address}}<br>
+                                        {{zip}} - {{city}}<br>
+                                        {{country}}
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="description">
+                                        {{#each contacts}}
+                                            {{name}}<br>
+                                            {{#if email}}
+                                                <a href="mailto:{{email}}">
+                                                    <i class="blue mail outline icon"></i>
+                                                </a>
+                                            {{/if}}
+                                        {{/each}}
+                                    </div>
+                                </td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
         {{/each}}
-    </ul>
+    </div>
 </template>

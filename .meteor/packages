@@ -11,3 +11,6 @@ aldeed:autoform
 iron:router
 sacha:spin
 accounts-password
+useraccounts:semantic-ui
+semantic:ui
+flemay:less-autoprefixer

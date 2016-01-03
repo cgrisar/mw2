@@ -1,15 +1,18 @@
 <template name="navbar">
-    <nav class="uk-navbar uk-navbar-attached tm-navbar">
-        <a href="#" class="uk-navbar-brand">MOVINGWINE</a>
-        <ul class="uk-navbar-nav">
-            <li><a href="#">Goods In</a></li>
-            <li class="uk-parent"><a href="/goodsout">Goods Out</a></li>
-            <li class="uk-parent"><a href="{{pathFor 'relationships'}}">Relationships</a></li>
-        </ul>
-        <div class="uk-navbar-flip">
-            <ul class="uk-navbar-nav">
-                {{> loginButtons }}
-            </ul>
+    <div class="ui secondary pointing menu">
+        <a class="disabled item" id="logo">
+            movingWine
+        </a>
+        <a class="item">
+            Goods In
+        </a>
+        <a class="item">
+            Goods Out
+        </a>
+        <div class="right menu">
+            <a class="ui item">
+                Logout
+            </a>
         </div>
-    </nav>
+    </div>
 </template>
