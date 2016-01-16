@@ -1,0 +1,77 @@
+<template name="relationshipSubmit">
+    <h2 class="ui header">
+        Add a Relationship
+    </h2>
+    <form class="ui form">
+        <div class="two fields">
+            <div class="field">
+                <div class="ui big input">
+                    <input type="text" name="relationshipName" placeholder="Relationship Name">
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui big input">
+                    <input type="text" name="relationshipVAT" placeholder="VAT">
+                </div>
+            </div>
+        </div>
+        <div name="relationshipTags" class="ui multiple search selection dropdown">
+            <input name="relationshipITags" type="hidden">
+            <i class="dropdown icon"></i>
+            <div class="default text">Tags</div>
+            <div class="menu">
+                {{#each relationshipTags}}
+                    <div class="item" data-value="{{this}}">{{this}}</div>
+                {{/each}}
+            </div>
+        </div>
+        <div class="ui divider"></div>
+        <h3 class="ui header">
+            Addresses
+        </h3>
+        <div name="addressTypes" class="ui multiple search selection dropdown">
+            <input name="addressITypes" type="hidden">
+            <i class="dropdown icon"></i>
+            <div class="default text">Type</div>
+            <div class="menu">
+                {{#each addressTypes}}
+                    <div class="item" data-value="{{this}}">{{this}}</div>
+                {{/each}}
+            </div>
+        </div>
+        <div class="ui clearing hidden divider"></div>
+        <div class="field eight wide">
+            <div class="ui input">
+                <input type="text" name="address1" placeholder="Address">
+            </div>
+        </div>
+        <div class="field eight wide">
+            <div class="ui input">
+                <input type="text" name="address2" placeholder="Address">
+            </div>
+        </div>
+        <div class="two fields">
+            <div class="field two wide">
+                <div class="ui input">
+                    <input type="text" name="zip" placeholder="Zip code">
+                </div>
+            </div>
+            <div class="field six wide">
+                <div class="ui input">
+                    <input type="text" name="city" placeholder="City">
+                </div>
+            </div>
+        </div>
+        <button class="ui red button">Cancel</button>
+        <button class="ui green button" type="submit">Save</button>
+    </form>
+
+    <script>
+        $('.ui.dropdown')
+                .dropdown({
+                    allowAdditions: true,
+                    sortSelect: true,
+                    action: 'select'
+                });
+    </script>
+</template>

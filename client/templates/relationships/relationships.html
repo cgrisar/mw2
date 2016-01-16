@@ -1,47 +1,40 @@
 <template name="relationships">
-    <h4>Relationships</h4>
+    <h2 class="ui header">
+        <div class="content">Relationships
+            <a href="{{pathFor 'relationshipSubmit'}}">
+                <i class="green plus icon"></i>
+            </a>
+        </div>
+    </h2>
 
     <div class="ui relaxed list">
         {{#each relationships}}
         <div class="item">
             <div class="content">
-                <a class="header">{{name}}</a>
-                <br>
-                <table class="ui single line table">
-                    <thead>
-                        <tr>
-                            <th>type</th>
-                            <th>address</th>
-                            <th>contact</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {{#each addresses}}
-                            <tr class="top aligned">
-                                <td>{{type}}</td>
-                                <td>
-                                    <div class="description">
-                                        {{address}}<br>
+                <a href="{{pathFor 'relationship'}}" class="header">{{name}}</a>
+                {{#each addresses}}
+                    {{#if isDefault addressType}}
+                        <table class="ui very basic two column table" id="relationshipstable">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        {{address1}}<br>
                                         {{zip}} - {{city}}<br>
                                         {{country}}
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="description">
-                                        {{#each contacts}}
-                                            {{name}}<br>
-                                            {{#if email}}
-                                                <a href="mailto:{{email}}">
-                                                    <i class="blue mail outline icon"></i>
-                                                </a>
-                                            {{/if}}
-                                        {{/each}}
-                                    </div>
-                                </td>
-                            </tr>
-                        {{/each}}
-                    </tbody>
-                </table>
+                                    </td>
+                                    <td>
+                                        {{contacts.[0].name}}<br>
+                                        {{#if contacts.[0].email}}
+                                            <a href="mailto:{{contacts.[0].email}}">
+                                                <i class="blue outline mail icon"></i>
+                                            </a>
+                                        {{/if}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    {{/if}}
+                {{/each}}
             </div>
         </div>
         {{/each}}

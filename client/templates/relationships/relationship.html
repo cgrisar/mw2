@@ -1,0 +1,175 @@
+<template name="relationship">
+    <h2 class="ui header">{{name}} - {{vat}}</h2>
+
+    {{#each relationshipTags}}
+        <div class="ui blue light label">{{this}}</div>
+    {{/each}}
+
+    <h3 class="ui header">Addresses
+        <a href="">
+            <i class="green plus icon"></i>
+        </a>
+    </h3>
+
+    <table class="ui single line table">
+        <thead>
+        <tr>
+            <th>type</th>
+            <th>address</th>
+            <th>contact</th>
+            <th>action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each addresses}}
+            <tr class="top aligned">
+                <td>
+                    {{#each addressType}}
+                        {{this}}<br>
+                    {{/each}}
+                </td>
+                <td>
+                    <div class="description">
+                        {{#if address1}}
+                            {{address1}}<br>
+                        {{/if}}
+                        {{#if address2}}
+                            {{address2}}<br>
+                        {{/if}}
+                        {{zip}} - {{city}}<br>
+                        {{country}}
+                    </div>
+                </td>
+                <td>
+                    <div class="description">
+                        {{#each contacts}}
+                            {{name}}<br>
+                            {{#if phone}}
+                                <i class="blue outline phone icon"></i>
+                                {{phone}}<br>
+                            {{/if}}
+                            {{#if email}}
+                                <a href="mailto:{{email}}">
+                                    <i class="blue mail outline icon"></i>
+                                    {{email}}
+                                </a>
+                            {{/if}}
+                        {{/each}}
+                    </div>
+                </td>
+                <td>
+                    <a href="">
+                        <i class="blue edit icon"></i>
+                    </a>
+                    <a href="">
+                        <i class="red remove icon"></i>
+                    </a>
+                </td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+
+    <!-- modal box to add an address -->
+    <div class="ui modal" id="addAddressModal">
+        <i class="close icon"></i>
+        <div class="header">
+            Add an address
+        </div>
+        <div class="content">
+            <form class="ui form">
+                <div class="ui grid">
+                    <div class="two column row">
+                        <div class="eight wide column">
+                            <input name="relationshipID" type="hidden" value="{{_id}}">
+                            <div name="addressTypes" class="ui multiple search selection dropdown">
+                                <input name="addressITypes" type="hidden">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Type</div>
+                                <div class="menu">
+                                    {{#each addressTypes}}
+                                        <div class="item" data-value="{{this}}">{{this}}</div>
+                                    {{/each}}
+                                </div>
+                            </div>
+                            <div class="ui hidden divider"></div>
+                            <div class="field eight wide">
+                                <div class="ui input">
+                                    <input type="text" name="address1" placeholder="Address">
+                                </div>
+                            </div>
+                            <div class="field eight wide">
+                                <div class="ui input">
+                                    <input type="text" name="address2" placeholder="Address">
+                                </div>
+                            </div>
+                            <div class="two fields">
+                                <div class="field two wide">
+                                    <div class="ui input">
+                                        <input type="text" name="zip" placeholder="Zip code">
+                                    </div>
+                                </div>
+                                <div class="field six wide">
+                                    <div class="ui input">
+                                        <input type="text" name="city" placeholder="City">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="eight wide column">
+                            <div class="field eight wide">
+                                <div class="ui input">
+                                    <input type="text" name="name" placeholder="Contact Person">
+                                </div>
+                            </div>
+                            <div name="contactTags" class="ui multiple search selection dropdown">
+                                <input name="contactITags" type="hidden">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Type</div>
+                                <div class="menu">
+                                    {{#each contactTags}}
+                                        <div class="item" data-value="{{this}}">{{this}}</div>
+                                    {{/each}}
+                                </div>
+                            </div>
+                            <div class="ui hidden divider"></div>
+                            <div class="field eight wide">
+                                <div class="ui input">
+                                    <input type="text" name="phone" placeholder="Phone number">
+                                </div>
+                            </div>
+                            <div class="field eight wide">
+                                <div class="ui input">
+                                    <input type="text" name="email" placeholder="E-mail">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="actions">
+            <button class="ui red cancel button">Cancel</button>
+            <button class="ui green approve button">Save</button>
+        </div>
+    </div>
+
+    <div class="ui modal" id="removeAddressModal">
+        <div class="header">Confirm</div>
+        <div class="content">
+            Do you want to remove this address?
+        </div>
+        <div class="actions">
+            <button class="ui red cancel button">No</button>
+            <button class="ui green approve button">Yes</button>
+        </div>
+    </div>
+
+    <script>
+        $('.ui.dropdown')
+                .dropdown({
+                    allowAdditions:true,
+                    sortSelect: true
+                });
+    </script>
+</template>

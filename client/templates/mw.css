@@ -7,3 +7,33 @@
     font: "Roboto", Helvetica, Arial, sans-serif;
     font-weight: 300;
 }
+
+#relationshipstable {
+    margin-top: 0em;
+    margin-bottom: 0.5em;
+}
+
+#relationshipstable td {
+    padding-top: 0.2em;
+    padding-bottom: 0em;
+    font-family: 'Helvetica Neue';
+    font-size: 12px;
+}
+
+/* tags */
+
+.ui.multiple.dropdown > .label,
+.ui.multiple.dropdown > .label:hover {
+    background-color: #4183c4;
+    color: white;
+    font-weight: 300;
+    font-size: 0.8em
+}
+
+.ui.search {
+    font-size: x-small;
+}
+
+.ui.label.light {
+    font-weight: 300;
+}
